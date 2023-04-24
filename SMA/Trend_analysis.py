@@ -17,11 +17,16 @@ df = pd.read_csv('trend_analysis.csv')
 # Convert the 'date' column to a datetime data type
 df['date'] = pd.to_datetime(df['date'])
 
+print(df.head())
+
 # Set the 'date' column as the index of the DataFrame
 df.set_index('date', inplace=True)
 
 # Resample the data by day and count the number of entries in each day
+# argument 'D' indicating that we want to resample by day.
 daily_counts = df.resample('D').count()
+print("Daily Counts: \n", daily_counts)
+
 
 # Plot the daily counts over time
 plt.plot(daily_counts.index, daily_counts['id'])

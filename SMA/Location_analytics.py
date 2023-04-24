@@ -40,10 +40,14 @@ def get_state(location):
 
 
 data['state'] = data['location'].apply(get_state)
+print(data.head())
 
 # Plot the frequency of each state in the data
 state_counts = data['state'].value_counts()
+# print("Count", state_counts)
 plt.figure(figsize=(12, 6))
+
+# name, values
 sns.barplot(x=state_counts.index, y=state_counts.values, palette="rocket")
 plt.xticks(rotation=90)
 plt.xlabel('State')
