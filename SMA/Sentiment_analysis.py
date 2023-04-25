@@ -17,12 +17,14 @@ df = pd.read_csv("sentiment.csv")
 
 # Perform sentiment analysis using TextBlob and store the polarity score
 df["polarity"] = df["text"].apply(lambda x: TextBlob(x).sentiment.polarity)
+print(df.head())
 
 # Create separate DataFrames for positive and negative tweets
 pos_tweets = df[df["label"] == "positive"]
 neg_tweets = df[df["label"] == "negative"]
 
 # Plot the distribution of polarity scores for positive and negative tweets
+# A kernel density estimate (KDE) plot is a method for visualizing the distribution of observations in a dataset, analogous to a histogram.
 sns.kdeplot(pos_tweets["polarity"], shade=True, label="Positive")
 sns.kdeplot(neg_tweets["polarity"], shade=True, label="Negative")
 plt.xlabel("Polarity Score")

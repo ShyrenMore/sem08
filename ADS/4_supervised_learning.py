@@ -6,12 +6,13 @@ import pandas as pd
 df = pd.read_csv("london_weather.csv")
 df.head()
 
-sunshine_median = df['sunshine'].median()
 df = df.fillna(df.mean())
-df.head()
+# print("After filling NUll values")
+# print(df.head())
 
 df.describe()
 
+sunshine_median = df['sunshine'].median()
 # In sunshine we want only 0/1
 # currently it has a range of values 0 to some int
 transform = lambda x: 1 if x>=sunshine_median else 0

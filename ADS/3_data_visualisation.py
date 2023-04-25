@@ -17,7 +17,6 @@ g = sns.displot(df['min_temp']) # distri plot
 # Draw a plot of two variables with bivariate and univariate graphs: jointplot
 sns.jointplot(x = 'min_temp', y='max_temp', data=df)
 
-
 # Plot pairwise relationships in a dataset: pairplot
 sns.pairplot(df)
 plt.show()

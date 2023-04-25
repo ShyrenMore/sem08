@@ -26,20 +26,21 @@ import seaborn as sns
 cor = X.corr()
 plt.figure(figsize=(12, 10))
 sns.heatmap(cor, annot=True)
+plt.show()
 
 kmeans = KMeans(n_clusters=2)
 kmeans.fit(X_sc)
 y_pred = kmeans.fit_predict(X_sc)
 
 labels = kmeans.labels_
-centroids = kmeans.cluster_centers_
+# centroids = kmeans.cluster_centers_
 
 # Extrinsince metrics: Rand index, Rand score, Mutual info
-from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score, rand_score
+from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score, rand_score, silhouette_score
 print(adjusted_rand_score(y, y_pred)) # rand index
 print(rand_score(y, y_pred)) # rand score
 print(normalized_mutual_info_score(y, y_pred)) #mutual info
 
 # Intrinsic metrics: Silhouette Coefficient
-from sklearn.metrics import silhouette_score
+# from sklearn.metrics import silhouette_score
 print(silhouette_score(X, labels))

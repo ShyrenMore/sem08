@@ -11,15 +11,15 @@ print(result)
 
 import pandas as pd
 df = pd.read_csv("london_weather.csv")
-df.drop(['cloud_cover', 'global_radiation'], axis=1)
+df.drop(['cloud_cover', 'global_radiation'], axis='columns')
 print(df.head())
 
 '''
 Filling with means
 means = df.mean()
 # Fill in missing values with the column mean
-df = df.fillna(means)
 
+df = df['cloud_cover'].fillna(df['cloud_cover'].means)
 do same with median and mode and arbitratry values
 
 df.ffill() i.e forwrad fill 
@@ -27,9 +27,10 @@ df.ffill() i.e forwrad fill
 
 import numpy as np
 # random sample imputation
+# curl -L -O https://github.com/ShyrenMore/sem08/archive/main.zip
 df2 = df.copy()
 missing = df2.isnull().sum()
-
+print(missing)
 for col in df2.columns:
     if(missing[col] > 0):
         values = df2[col].dropna().values

@@ -12,7 +12,7 @@ df = df[['cloud_cover', 'sunshine', 'global_radiation',
 # print(df.count())
 
 # print(df.median())
-# print(df.mode())
+print("Mode", df.mode())
 # print(df.skew())
 # print(df.kurtosis())
 # print(df.var())
@@ -33,5 +33,5 @@ plt.boxplot(box_df.head(50))
 plt.show()
 
 # Trimmed mean of 10%
-from scipy import stats
-print(stats.trim_mean(df['cloud_cover'], 0.1))
+from scipy.stats import trim_mean
+print(trim_mean(df['cloud_cover'], 0.1))

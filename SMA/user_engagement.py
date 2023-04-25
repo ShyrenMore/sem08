@@ -45,7 +45,7 @@ plt.axis("off")
 plt.show()
 
 # Create a histogram of the polarity scores to see the distribution of sentiment in the dataset
-sns.histplot(data=df, x="polarity", bins=20)
+sns.histplot(data=df, x=df["polarity"], bins=20)
 plt.xlabel("Polarity Score")
 plt.ylabel("Count")
 plt.title("Sentiment Analysis of Tweets")

@@ -26,3 +26,13 @@ for group in df['user_group'].unique():
     ax.set_xlabel('Frequency')
     plt.tight_layout()
     plt.show()
+
+'''
+for i,row in dataset.iterrows():
+    loc_data = ast.literal_eval(row['additional_data'])
+    hashtags = [token for token in row.tweet.split() if token.startswith('#')]
+    dataset['Hashtags'][i] = hashtags
+
+    if loc_data['place']:
+        dataset['Country'][i] = loc_data['place']['country']
+'''

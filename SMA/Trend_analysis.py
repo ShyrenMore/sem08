@@ -24,6 +24,7 @@ df.set_index('date', inplace=True)
 
 # Resample the data by day and count the number of entries in each day
 # argument 'D' indicating that we want to resample by day.
+# daily_counts = df.resample('D').count()
 daily_counts = df.resample('D').count()
 print("Daily Counts: \n", daily_counts)
 

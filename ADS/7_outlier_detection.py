@@ -19,7 +19,8 @@ distances, indexes = model.kneighbors(X)
 plt.plot(distances.mean(axis=1))
 plt.show()
 
-# cut outlier values of >0.15
+# print("\nType os :: \n", type(distances))
+# cut outlier values of >0.15 
 outlier_idx = np.where(distances.mean(axis=1) > 0.15)
 # filter outlier values
 outlier_attributes = df.data[outlier_idx]
