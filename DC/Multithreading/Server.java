@@ -1,22 +1,18 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.ServerSocket;
-import java.net.Socket;
-public class Server {
-    private static final int SERVER_PORT = 1234;
+import java.io.*;
+import java.net.*;
 
-    // Main method
+public class Server {
+    static int SERVER_PORT = 1234;
+
     public static void main(String[] args) {
-        try {
-            // Create server socket
-            ServerSocket serverSocket = new ServerSocket(SERVER_PORT);
+        try{
+            ServerSocket ssocket = new ServerSocket(SERVER_PORT);
             System.out.println("Server started");
 
-            while (true) {
+            while(true)
+            {
                 // Wait for incoming connection
-                Socket clientSocket = serverSocket.accept();
+                Socket clientSocket = ssocket.accept();
                 System.out.println("Client connected");
 
                 // Get input and output streams
@@ -33,8 +29,8 @@ public class Server {
                 // Close client socket
                 clientSocket.close();
             }
-            
-        } catch (IOException e) {
+
+        }catch (IOException e) {
             e.printStackTrace();
         }
     }

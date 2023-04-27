@@ -12,7 +12,7 @@
  */
 import java.util.Scanner;
 
-public class LoadBalance {
+public class LoadBalancing {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -27,7 +27,7 @@ public class LoadBalance {
             System.out.print("> ");
             int choice = sc.nextInt();
             int temp;
-            
+
             switch (choice) {
                 case 1:
                     System.out.println("Enter number of servers to be added: ");
@@ -57,9 +57,8 @@ public class LoadBalance {
             }
         }
     }
-    
-    static void printServerLoad(int numServers, int numProcesses)
-    {
+
+    static void printServerLoad(int numServers, int numProcesses) {
         int processesPerServer = numProcesses / numServers;
         int extraProcesses = numProcesses % numServers;
 
@@ -73,7 +72,7 @@ public class LoadBalance {
         for (; i < numServers; i++)
             System.out.println("Server " + (i + 1) + " has " + processesPerServer + " processes");
     }
-    
+
     static void displayMenu() {
         System.out.println("1. Add Server");
         System.out.println("2. Remove Server");
